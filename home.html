@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <script>
+   <script>
         fetch('https://randomuser.me/api/?results=100')
             .then(response => response.json())
             .then(data => {
@@ -68,13 +68,14 @@
                     list.appendChild(p1);
                     list.appendChild(p2);
                     list.appendChild(p3);
-
+                    
                     chip.appendChild(img);
                     chip.appendChild(list);
-
+                    
                     chip.addEventListener('click', () => {
                         localStorage.setItem('selectedProfileIndex', index);
-                        window.location.href = 'profile.html';
+                        window.location.href = 'profile.html?data='+ encodeURIComponent(JSON.stringify(profile));
+                        console.log("item : ",profile)
                     });
 
                     center.appendChild(chip);
